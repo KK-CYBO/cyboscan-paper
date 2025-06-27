@@ -1,0 +1,19 @@
+,quality,layers,size_text,size,imaging_time,whole_time,csv_file
+1,Low,10,165 MB,165,187,265,cleaned_no_failure_s901-d02-20250616r07-0001-b72ebb614f5c2462.csv
+2,Med,10,482 MB,482,187,267,cleaned_no_failure_s901-d02-20250616r06-0001-6e504e7c0631c7db.csv
+3,High,10,960 MB,960,190,270,cleaned_no_failure_s901-d02-20250616r05-0001-f8afa54a189ba2e8.csv
+4,Low,20,336 MB,336,275,360,cleaned_no_failure_s901-d02-20250617r02-0001-458ce242b78f066f.csv
+5,Medium,20,980 MB,980,274,363,cleaned_no_failure_s901-d02-20250617r03-0001-1c1e8910ecd364a0.csv
+6,High,20,1.9 GB,1900,279,358,cleaned_no_failure_s901-d02-20250616r08-0001-64eceeeca8cdcf7e.csv
+7,Low,40,681 MB,681,470,560,cleaned_no_failure_s901-d02-20250617r04-0001-d576ab494b3066c9.csv
+8,Medium,40,2.5 GB,2500,470,555,cleaned_no_failure_s901-d02-20250617r05-0001-35d33dbb20f01f85.csv
+9,High,40,3.8 GB,3800,475,560,cleaned_no_failure_s901-d02-20250616r09-0001-bfd8e4b2849a9cb8.csv
+10,Low,10,167 MB,167,185,267,cleaned_no_failure_s901-d02-20250616r11-0001-86a0d4712006ed91.csv
+11,Med,10,483 MB,483,184,262,cleaned_no_failure_s901-d02-20250616r12-0001-2f02d765ff7d9fb0.csv
+12,High,10,947 MB,947,184,261,cleaned_no_failure_s901-d02-20250616r13-0001-dc4445c9af1a7ca0.csv
+13,Low,20,339 MB,339,276,361,cleaned_no_failure_s901-d02-20250617r11-0001-f9a6831d6b434143.csv
+14,Medium,20,1.1 GB,1100,278,362,cleaned_no_failure_s901-d02-20250617r09-0001-16aa8d892dd37c3c.csv
+15,High,20,1.9 GB,1900,272,384,cleaned_no_failure_s901-d02-20250616r14-0001-92c8898f6e9ac119.csv
+16,Low,40,682 MB,682,467,557,cleaned_no_failure_s901-d02-20250617r07-0001-492494e41be450bf.csv
+17,Medium,40,2.6 GB,2600,470,562,cleaned_no_failure_s901-d02-20250617r08-0001-9686715d0b4d9cd7.csv
+18,High,40,3.7 GB,3700,473,553,cleaned_no_failure_s901-d02-20250616r15-0001-a71df84dafe6ca88.csv

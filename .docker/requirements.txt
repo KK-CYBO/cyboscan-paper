@@ -1,0 +1,13 @@
+loguru
+opencv-python
+numpy<2
+jupyter
+jupyterlab
+pandas
+scikit-learn
+matplotlib
+seaborn
+markupsafe==2.0.1
+pandas
+pillow
+pillow-heif
