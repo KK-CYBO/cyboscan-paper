@@ -1,6 +1,15 @@
 # cyboscan-manuscript
 This repository contains the data analysis code used in the paper by Nitta et al., Clinical-grade autonomous cytopathology via whole-slide edge tomography.
 
+> **Releases & Versioning**
+> - **v1.0.0** — Initial submission / medRxiv v1  
+>   DOI: https://doi.org/10.5281/zenodo.17460808  
+>   https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0
+> - **v1.1.0** — Revision (multicenter analyses; Fig. 6e–f q-values)  
+>   DOI: *(added after release)*
+
+---
+
 ## System Requirements
 
 This repository has been tested in the following environment:
@@ -45,85 +54,83 @@ Docker image build: ~3–5 minutes (depending on internet speed)
 
 Container startup: <1 minute
 
-## Demo
+## Reproducible Figures
 
-This section explains how to reproduce key figures from the paper using the provided code and data.
+Below are the figures/tables that can be reproduced directly with public materials in this repository.  
+All notebooks were validated inside the Docker environment.
 
-### 📊 Reproducible Figures
+### A. Single-center pilot study (original submission; **Fig. 6**)
+- **Notebook:** `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`  
+- **Input:** `statistical_analysis/paper-figure_celllist.csv`  
+- **Generates:** **Fig. 6a–i**  
+  - **Update in v1.1.0:** displays **q-values** on **Fig. 6e–f** (significance tests).
 
-The following figure panels can be reproduced using the available notebooks and data in this repository.
+### B. Multicenter evaluation (revision; **Fig. 7**, Extended Data Figs. 7–8)
+All notebooks below assume the working directory is `multicenter_analysis/` and read a single CSV, `paper-figure_celllist_all.csv`.
 
-#### 🔹 Figure 6 (Panels a–i)
+- `0_check_data.ipynb`  
+  - **Supplementary Table 1**: Sample counts by center, HPV status, cytology category  
+  - **Extended Data Fig. 7b**: Age distributions by center  
+  - **Extended Data Fig. 8a**: Age distributions by preparation (SurePath / ThinPrep)
 
-To reproduce the entire Figure 6 (panels a through i), run the following notebook:
+- `1_cytology-AI-plots.ipynb`  
+  - **Extended Data Fig. 7a, 7c–d**: Whole-slide counts across centers (incl. *navicular*; abnormal-only)  
+  - **Fig. 7a–b**: AI-detected LSIL/HSIL counts by diagnosis and center (violin + points)
 
-`statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`
+- `2_cytology-AI-statistics.ipynb`  
+  - **Supplementary Table 2**: Summary stats and within-center significance for AI-detected LSIL/HSIL counts
 
-Required data:
+- `3_hpv.ipynb`  
+  - **Fig. 7c–d**: LSIL/HSIL counts by HPV status (− / +), stratified by center (violin + boxplots)
 
-`statistical_analysis/paper-figure_celllist.csv`
+- `4_roc-auc.ipynb`  
+  - **Fig. 7e**: ROC for LSIL⁺ (LSIL, ASC-H, HSIL, SCC) and HSIL⁺ (HSIL, SCC), **per center + all centers**  
+  - **Extended Data Fig. 8b–c**: ROC by sample preparation (SurePath / ThinPrep)  
+  - **Fig. 7f–g**: Threshold–AUC sensitivity curves for LSIL⁺ / HSIL⁺ (per center)
 
-Simply launch Jupyter Lab inside the Docker container and open the notebook above. All plots will be generated upon execution. Sample outputs are viewable on GitHub via the rendered notebook.
+- `5_roc-auc-hpv.ipynb`  
+  - **Fig. 7h–i**: ROC for AI-based detection of **HPV positivity** with 95% CI; human operating points (ASC-US⁺, LSIL⁺) overlaid (h: all centers; i: Center C)
 
-**Expected run time:** ~10 minutes
+### C. Viewer latency (unchanged in revision; **Extended Data Fig. 3b**)
+- **Notebook:** `viewer_latency/viewer_latency copy.ipynb`  
+- **Input:** `viewer_latency/viewer_latency_data/*.csv`  
+- **Generates:** **Extended Data Fig. 3b** (latency vs. data size)
 
-#### 🔹 Extended Data Figure 3b (Latency vs. Data Size)
+> **Note:** Figure numbering reflects the revision manuscript and may be updated before camera-ready.
 
-This figure can be reproduced by running:
+---
 
-`viewer_latency/viewer_latency copy.ipynb`
+## Figures requiring proprietary data
 
-Required data:
+The following still require non-public image datasets and are therefore **not fully reproducible** here:
 
-`viewer_latency/viewer_latency_data/*.csv`
+- **Figure 5**
+  - 5b (UMAP) & 5e,f (cell images): `umap_plot/Image_UMAP_313-31y41_154.ipynb`  
+  - 5c (UMAP) & 5f (cells): `umap_plot/Image_UMAP_313-31y41_068.ipynb`  
+  - 5d (UMAP) & 5g,h (cells): `umap_plot/Image_UMAP_313-31y41_119.ipynb`  
+  These notebooks contain the code, but associated images are not included.
 
-**Expected run time:** <1 minute
-
-### ⚠️ Figures Requiring Proprietary Data
-
-The following figures involve visualizations generated from data not included in this repository due to privacy or proprietary restrictions.
-
-#### 🔸 Figure 5
-
-- **Figure 5b (UMAP plot) & 5e,f (cell images):**  
-  `umap_plot/Image_UMAP_313-31y41_154.ipynb`
-
-- **Figure 5c (UMAP) & 5f (cells):**  
-  `umap_plot/Image_UMAP_313-31y41_068.ipynb`
-
-- **Figure 5d (UMAP) & 5g,h (cells):**  
-  `umap_plot/Image_UMAP_313-31y41_119.ipynb`
-
-These notebooks contain the necessary code, but the associated image data is not included in this repository. Therefore, executing these notebooks will not fully reproduce the figures unless the private datasets are available.
-
-If needed, we can consider releasing a limited, anonymized subset of data to support reproducibility.
+---
 
 ## Instructions for Use
 
-This repository can also be used to analyze new datasets, provided that the data format matches the structure expected by the notebooks.
-
-For example, the notebook `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb` expects a CSV file containing per-cell measurements (e.g. morphometry, intensity, classification), similar to `paper-figure_celllist.csv`.
-
 To apply the analysis to your own dataset:
-1. Prepare a CSV file with a similar structure (see `statistical_analysis/paper-figure_celllist.csv` for reference).
-2. Modify the file path in the notebook accordingly.
-3. Run the notebook in Jupyter Lab to generate plots and statistics.
+1. Prepare a CSV following the schemas used in:
+   - `statistical_analysis/paper-figure_celllist.csv` (single-center)  
+   - `multicenter_analysis/paper-figure_celllist_all.csv` (multicenter)
+2. Adjust the input path in the chosen notebook as needed.
+3. Execute all cells in Jupyter Lab (inside the Docker container).
 
-Currently, image-level analysis (e.g. UMAP projections in `umap_plot`) requires additional image datasets that are not included in this repository.
+**Determinism tips:** Set explicit seeds (`numpy.random.seed`, `random_state`) and fix BLAS threads (`OPENBLAS_NUM_THREADS=1`, `MKL_NUM_THREADS=1`) if you need bitwise-stable results.
 
-## Reproduction Instructions (Optional)
+---
 
-The following steps summarize how to reproduce the main quantitative results in the paper:
+## Data availability (summary)
 
-- **Figure 6a–i**: Run all cells in  
-  `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`
+Due to privacy and regulatory constraints, raw cytology image data are not publicly shared. 
+We provide anonymized CSVs sufficient to reproduce the key quantitative figures in this repository. 
+For details on data governance and access requests, please refer to the manuscript’s Data Availability statement.
 
-- **Extended Data Figure 3b**: Run  
-  `viewer_latency/viewer_latency copy.ipynb`
-
-The data for these figures are included in the repository. All other figures that rely on image data (e.g. UMAP projections in Figure 5) require access to non-public datasets.
-
-To reproduce those results, please contact the authors or request access to a subset of anonymized data (pending approval).
 
 ## License
 

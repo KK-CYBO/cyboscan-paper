@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the specific tagged release (see DOI below)."
+title: "cyboscan-manuscript: analysis code for Clinical-grade autonomous cytopathology via whole-slide edge tomography"
+authors:
+  - family-names: Nitta
+    given-names: Nao
+    affiliation: "K.K.CYBO"
+    orcid: "https://orcid.org/0000-0002-9093-9016"
+repository-code: "https://github.com/KK-CYBO/cyboscan-manuscript"
+license: MIT
+keywords:
+  - cytology
+  - cervical cancer screening
+  - whole-slide imaging
+  - AI
+version: "v1.0.0"
+doi: 10.5281/zenodo.17460808
+url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0"
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.17460808
+    description: "Version 1.0.0 (Initial submission / medRxiv v1)"
+preferred-citation:
+  type: software
+  title: "cyboscan-manuscript (v1.0.0)"
+  authors:
+    - family-names: Nitta
+      given-names: Nao
+      affiliation: "K.K.CYBO"
+      orcid: "https://orcid.org/0000-0002-9093-9016"
+  doi: 10.5281/zenodo.17460808
+  url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0"

@@ -1,9 +1,10 @@
 MIT License
+SPDX-License-Identifier: MIT
 
 Copyright (c) 2025 K.K.CYBO
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
+of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
@@ -20,5 +21,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Note: Some parts of this software may be covered by one or more patents.
-This license does not grant any rights under such patents.
+----
+Additional Notice on Patents (non-normative)
+
+Some parts of this software may be covered by one or more patents. This
+license does not grant any rights under such patents.
