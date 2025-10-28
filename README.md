@@ -1,4 +1,5 @@
 # cyboscan-manuscript
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
 This repository contains the data analysis code used in the paper by Nitta et al., Clinical-grade autonomous cytopathology via whole-slide edge tomography.
 
 > **Releases & Versioning**
@@ -6,7 +7,8 @@ This repository contains the data analysis code used in the paper by Nitta et al
 >   DOI: https://doi.org/10.5281/zenodo.17460808  
 >   https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0
 > - **v1.1.0** — Revision (multicenter analyses; Fig. 6e–f q-values)  
->   DOI: *(added after release)*
+>   DOI: https://doi.org/10.5281/zenodo.17465404  
+>   https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.1.0
 
 ---
 

@@ -4,7 +4,7 @@ title: "cyboscan-manuscript: analysis code for Clinical-grade autonomous cytopat
 authors:
   - family-names: Nitta
     given-names: Nao
-    affiliation: "K.K.CYBO"
+    affiliation: "K.K. CYBO"
     orcid: "https://orcid.org/0000-0002-9093-9016"
 repository-code: "https://github.com/KK-CYBO/cyboscan-manuscript"
 license: MIT
@@ -13,20 +13,21 @@ keywords:
   - cervical cancer screening
   - whole-slide imaging
   - AI
-version: "v1.0.0"
-doi: 10.5281/zenodo.17460808
-url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0"
+version: "v1.1.0"
+doi: 10.5281/zenodo.17465404
+url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.1.0"
+date-released: "2025-10-28"
 identifiers:
   - type: doi
-    value: 10.5281/zenodo.17460808
-    description: "Version 1.0.0 (Initial submission / medRxiv v1)"
+    value: 10.5281/zenodo.17465404
+    description: "Version 1.1.0 (Revision)"
 preferred-citation:
   type: software
-  title: "cyboscan-manuscript (v1.0.0)"
+  title: "cyboscan-manuscript (v1.1.0)"
   authors:
     - family-names: Nitta
       given-names: Nao
-      affiliation: "K.K.CYBO"
+      affiliation: "K.K. CYBO"
       orcid: "https://orcid.org/0000-0002-9093-9016"
-  doi: 10.5281/zenodo.17460808
-  url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0"
+  doi: 10.5281/zenodo.17465404
+  url: "https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.1.0"
