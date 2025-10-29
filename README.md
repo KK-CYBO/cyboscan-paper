@@ -1,4 +1,4 @@
-# cyboscan-manuscript [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
+# cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
 **Scope:** analysis & figure-generation code + anonymized CSVs. Excludes on-device image processing modules, AI training code/weights, and backend infrastructure (including the inference pipeline).
 
 Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
@@ -139,5 +139,6 @@ This repository is licensed under the MIT License.
 © 2025 K.K.CYBO
 
 Please note that some portions of the code disclosed here may be covered by one or more patents. The presence, scope, and jurisdiction of such patents may vary, and this repository does not grant any license to use any patented technology.
+
 
 For details, please refer to the `LICENSE` file included in this repository.
