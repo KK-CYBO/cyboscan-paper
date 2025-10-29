@@ -1,6 +1,7 @@
-# cyboscan-manuscript
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
-This repository contains the data analysis code used in the paper by Nitta et al., Clinical-grade autonomous cytopathology via whole-slide edge tomography.
+# cyboscan-manuscript [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
+**Scope:** analysis & figure-generation code + anonymized CSVs. Excludes on-device image processing modules, AI training code/weights, and backend infrastructure (including the inference pipeline).
+
+Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
 
 > **Releases & Versioning**
 > - **v1.0.0** — Initial submission / medRxiv v1  
@@ -122,8 +123,6 @@ To apply the analysis to your own dataset:
    - `multicenter_analysis/paper-figure_celllist_all.csv` (multicenter)
 2. Adjust the input path in the chosen notebook as needed.
 3. Execute all cells in Jupyter Lab (inside the Docker container).
-
-**Determinism tips:** Set explicit seeds (`numpy.random.seed`, `random_state`) and fix BLAS threads (`OPENBLAS_NUM_THREADS=1`, `MKL_NUM_THREADS=1`) if you need bitwise-stable results.
 
 ---
 
