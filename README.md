@@ -6,10 +6,10 @@ Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology 
 > **Releases & Versioning**
 > - **v1.0.0** — Initial submission / medRxiv v1  
 >   DOI: https://doi.org/10.5281/zenodo.17460808  
->   https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.0.0
+>   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.0.0
 > - **v1.1.0** — Revision (multicenter analyses; Fig. 6e–f q-values)  
 >   DOI: https://doi.org/10.5281/zenodo.17465404  
->   https://github.com/KK-CYBO/cyboscan-manuscript/releases/tag/v1.1.0
+>   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.0
 
 ---
 
