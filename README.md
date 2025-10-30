@@ -1,4 +1,4 @@
-# cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17465404.svg)](https://doi.org/10.5281/zenodo.17465404)
+# cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17480516.svg)](https://doi.org/10.5281/zenodo.17480516)
 **Scope:** analysis & figure-generation code + anonymized CSVs. Excludes on-device image processing modules, AI training code/weights, and backend infrastructure (including the inference pipeline).
 
 Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
