@@ -4,12 +4,15 @@
 Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
 
 > **Releases & Versioning**
-> - **v1.0.0** — Initial submission / medRxiv v1  
->   DOI: https://doi.org/10.5281/zenodo.17460808  
->   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.0.0
+> - **v1.1.1** — Add Cliff’s delta (effect size) in selected statistics  
+>   DOI: https://doi.org/10.5281/zenodo.17480516  
+>   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.1
 > - **v1.1.0** — Revision (multicenter analyses; Fig. 6e–f q-values)  
 >   DOI: https://doi.org/10.5281/zenodo.17465404  
 >   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.0
+> - **v1.0.0** — Initial submission / medRxiv v1  
+>   DOI: https://doi.org/10.5281/zenodo.17460808  
+>   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.0.0
 
 ---
 
@@ -67,6 +70,7 @@ All notebooks were validated inside the Docker environment.
 - **Input:** `statistical_analysis/paper-figure_celllist.csv`  
 - **Generates:** **Fig. 6a–i**  
   - **Update in v1.1.0:** displays **q-values** on **Fig. 6e–f** (significance tests).
+  - **Update in v1.1.1:** add **Cliff’s delta** effect sizes where applicable.
 
 ### B. Multicenter evaluation (revision; **Fig. 7**, Extended Data Figs. 7–8)
 All notebooks below assume the working directory is `multicenter_analysis/` and read a single CSV, `paper-figure_celllist_all.csv`.
@@ -81,10 +85,10 @@ All notebooks below assume the working directory is `multicenter_analysis/` and 
   - **Fig. 7a–b**: AI-detected LSIL/HSIL counts by diagnosis and center (violin + points)
 
 - `2_cytology-AI-statistics.ipynb`  
-  - **Supplementary Table 2**: Summary stats and within-center significance for AI-detected LSIL/HSIL counts
+  - **Supplementary Table 2**: Summary stats and within-center significance for AI-detected LSIL/HSIL counts (+ Cliff’s delta)
 
 - `3_hpv.ipynb`  
-  - **Fig. 7c–d**: LSIL/HSIL counts by HPV status (− / +), stratified by center (violin + boxplots)
+  - **Fig. 7c–d**: LSIL/HSIL counts by HPV status (− / +), stratified by center (violin + boxplots) (+ Cliff’s delta)
 
 - `4_roc-auc.ipynb`  
   - **Fig. 7e**: ROC for LSIL⁺ (LSIL, ASC-H, HSIL, SCC) and HSIL⁺ (HSIL, SCC), **per center + all centers**  

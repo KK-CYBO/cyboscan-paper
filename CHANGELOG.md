@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file.
 This project follows Keep a Changelog and uses Semantic Versioning.
 
+## [v1.1.1] - 2025-10-30
+### Added
+- Effect size **Cliff’s delta** to statistical notebooks:
+  - `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`
+  - `multicenter_analysis/2_cytology-AI-statistics.ipynb`
+  - `multicenter_analysis/3_hpv.ipynb`
+
+### Changed
+- README: update DOI badge/links; note Cliff’s delta in relevant sections.
+- Repository renamed to **cyboscan-paper** (links updated).
+
+### Fixed
+- Minor text polish in docs (no breaking changes).
+
 ## [v1.1.0] - 2025-10-28
 ### Added
 - **multicenter_analysis/** (flat layout) with notebooks and evaluation CSV:

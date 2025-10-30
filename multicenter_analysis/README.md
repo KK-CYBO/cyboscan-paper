@@ -3,6 +3,8 @@
 This folder contains notebooks and a single CSV used to generate **multicenter** figures and tables for the manuscript revision.  
 All notebooks read the same input file, `paper-figure_celllist_all.csv`, and were validated to run inside the Docker environment provided at the repository root (see the top-level `README.md`).
 
+> **Update (v1.1.1):** Added **Cliff’s delta** (effect size) to selected statistical outputs in `2_cytology-AI-statistics.ipynb` and `3_hpv.ipynb`.
+
 > **Working directory:** run these notebooks with the current working directory set to this folder.
 
 ---
@@ -60,11 +62,11 @@ Whole-slide cell count visualizations:
 
 ### `2_cytology-AI-statistics.ipynb`
 Summary statistics and within-center significance testing:
-- **Supplementary Table 2**: Statistics for AI-detected LSIL and HSIL counts (per center).
+- **Supplementary Table 2**: Statistics for AI-detected LSIL and HSIL counts (per center) (+ Cliff’s delta).
 
 ### `3_hpv.ipynb`
 Counts by HPV status:
-- **Fig. 7c,d**: AI-detected LSIL (c) and HSIL (d) cell counts by HPV status (−, +) within each center (C, T, K, J).  
+- **Fig. 7c,d**: AI-detected LSIL (c) and HSIL (d) cell counts by HPV status (−, +) within each center (C, T, K, J) (+ Cliff’s delta).  
   Violin plots with overlaid boxplots.
 
 ### `4_roc-auc.ipynb`
