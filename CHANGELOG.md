@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 This project follows Keep a Changelog and uses Semantic Versioning.
 
+## [v1.1.2] - 2025-11-2
+### Added
+- **Expected run time** estimates for each reproducible notebook in `README.md` (“Reproducible Figures” section).
+
+### Changed
+- `README.md`: added a one-line note clarifying that runtime estimates were measured inside the provided Docker container on a standard desktop.
+
+### Fixed
+- None.
+
 ## [v1.1.1] - 2025-10-30
 ### Added
 - Effect size **Cliff’s delta** to statistical notebooks:

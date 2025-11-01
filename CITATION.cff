@@ -13,10 +13,9 @@ keywords:
   - cervical cancer screening
   - whole-slide imaging
   - AI
-version: "v1.1.1"
-doi: 10.5281/zenodo.17480516
-url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.1"
-date-released: "2025-10-30"
+version: "v1.1.2"
+url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2"
+date-released: "2025-11-02"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.17480516
@@ -29,11 +28,10 @@ identifiers:
     description: "Version 1.0.0"
 preferred-citation:
   type: software
-  title: "cyboscan-paper (v1.1.1)"
+  title: "cyboscan-paper (v1.1.2)"
   authors:
     - family-names: Nitta
       given-names: Nao
       affiliation: "K.K.CYBO"
       orcid: "https://orcid.org/0000-0002-9093-9016"
-  doi: 10.5281/zenodo.17480516
-  url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.1"
+  url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2"

@@ -4,6 +4,9 @@
 Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
 
 > **Releases & Versioning**
+> - **v1.1.2** — Add Expected run time estimates to README ("Reproducible Figures")  
+>   DOI: TBD  
+>   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2
 > - **v1.1.1** — Add Cliff’s delta (effect size) in selected statistics  
 >   DOI: https://doi.org/10.5281/zenodo.17480516  
 >   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.1
@@ -63,7 +66,8 @@ Container startup: <1 minute
 ## Reproducible Figures
 
 Below are the figures/tables that can be reproduced directly with public materials in this repository.  
-All notebooks were validated inside the Docker environment.
+All notebooks were validated inside the Docker environment.  
+*Runtime estimates were measured inside the provided Docker container on a standard desktop; first runs may be slightly slower due to cache warm-up.*
 
 ### A. Single-center pilot study (original submission; **Fig. 6**)
 - **Notebook:** `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`  
@@ -71,6 +75,7 @@ All notebooks were validated inside the Docker environment.
 - **Generates:** **Fig. 6a–i**  
   - **Update in v1.1.0:** displays **q-values** on **Fig. 6e–f** (significance tests).
   - **Update in v1.1.1:** add **Cliff’s delta** effect sizes where applicable.
+- **Expected run time:** ~10 minutes
 
 ### B. Multicenter evaluation (revision; **Fig. 7**, Extended Data Figs. 7–8)
 All notebooks below assume the working directory is `multicenter_analysis/` and read a single CSV, `paper-figure_celllist_all.csv`.
@@ -79,29 +84,36 @@ All notebooks below assume the working directory is `multicenter_analysis/` and 
   - **Supplementary Table 1**: Sample counts by center, HPV status, cytology category  
   - **Extended Data Fig. 7b**: Age distributions by center  
   - **Extended Data Fig. 8a**: Age distributions by preparation (SurePath / ThinPrep)
+  - **Expected run time:** <1 minute
 
 - `1_cytology-AI-plots.ipynb`  
   - **Extended Data Fig. 7a, 7c–d**: Whole-slide counts across centers (incl. *navicular*; abnormal-only)  
   - **Fig. 7a–b**: AI-detected LSIL/HSIL counts by diagnosis and center (violin + points)
+  - **Expected run time:** ~2–4 minutes
 
 - `2_cytology-AI-statistics.ipynb`  
   - **Supplementary Table 2**: Summary stats and within-center significance for AI-detected LSIL/HSIL counts (+ Cliff’s delta)
+  - **Expected run time:** <1 minute
 
 - `3_hpv.ipynb`  
   - **Fig. 7c–d**: LSIL/HSIL counts by HPV status (− / +), stratified by center (violin + boxplots) (+ Cliff’s delta)
+  - **Expected run time:** <1 minute
 
 - `4_roc-auc.ipynb`  
   - **Fig. 7e**: ROC for LSIL⁺ (LSIL, ASC-H, HSIL, SCC) and HSIL⁺ (HSIL, SCC), **per center + all centers**  
   - **Extended Data Fig. 8b–c**: ROC by sample preparation (SurePath / ThinPrep)  
   - **Fig. 7f–g**: Threshold–AUC sensitivity curves for LSIL⁺ / HSIL⁺ (per center)
+  - **Expected run time:** ~15–25 minutes
 
 - `5_roc-auc-hpv.ipynb`  
   - **Fig. 7h–i**: ROC for AI-based detection of **HPV positivity** with 95% CI; human operating points (ASC-US⁺, LSIL⁺) overlaid (h: all centers; i: Center C)
+  - **Expected run time:** ~1–2 minutes
 
 ### C. Viewer latency (unchanged in revision; **Extended Data Fig. 3b**)
 - **Notebook:** `viewer_latency/viewer_latency copy.ipynb`  
 - **Input:** `viewer_latency/viewer_latency_data/*.csv`  
 - **Generates:** **Extended Data Fig. 3b** (latency vs. data size)
+- **Expected run time:** <1 minutes
 
 > **Note:** Figure numbering reflects the revision manuscript and may be updated before camera-ready.
 
