@@ -1,11 +1,11 @@
-# cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17480516.svg)](https://doi.org/10.5281/zenodo.17480516)
+# cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17460807.svg)](https://doi.org/10.5281/zenodo.17460807)
 **Scope:** analysis & figure-generation code + anonymized CSVs. Excludes on-device image processing modules, AI training code/weights, and backend infrastructure (including the inference pipeline).
 
 Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
 
 > **Releases & Versioning**
 > - **v1.1.2** — Add Expected run time estimates to README ("Reproducible Figures")  
->   DOI: TBD  
+>   DOI: https://doi.org/10.5281/zenodo.17502340  
 >   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2
 > - **v1.1.1** — Add Cliff’s delta (effect size) in selected statistics  
 >   DOI: https://doi.org/10.5281/zenodo.17480516  
