@@ -1,160 +1,206 @@
 # cyboscan-paper [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17460807.svg)](https://doi.org/10.5281/zenodo.17460807)
-**Scope:** analysis & figure-generation code + anonymized CSVs. Excludes on-device image processing modules, AI training code/weights, and backend infrastructure (including the inference pipeline).
 
-Companion repository for Nitta et al., *Clinical-grade autonomous cytopathology via whole-slide edge tomography*.
+Code accompanying the manuscript  
+**“Clinical-grade autonomous cytopathology via whole-slide edge tomography”** (Nitta et al.)
 
-> **Releases & Versioning**
-> - **v1.1.2** — Add Expected run time estimates to README ("Reproducible Figures")  
->   DOI: https://doi.org/10.5281/zenodo.17502340  
->   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2
-> - **v1.1.1** — Add Cliff’s delta (effect size) in selected statistics  
->   DOI: https://doi.org/10.5281/zenodo.17480516  
->   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.1
-> - **v1.1.0** — Revision (multicenter analyses; Fig. 6e–f q-values)  
->   DOI: https://doi.org/10.5281/zenodo.17465404  
->   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.0
-> - **v1.0.0** — Initial submission / medRxiv v1  
->   DOI: https://doi.org/10.5281/zenodo.17460808  
->   https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.0.0
+This repository contains the research code implementing the full pipeline used in
+the manuscript, from **edge-device acquisition and compression** through
+**AI training**, **backend inference**, and **downstream statistical analyses**.
+
+From version **2.0.0** onward, this repository is released under the
+**AGPL-3.0 license** and is primarily intended to satisfy journal
+code-availability requirements and to document the full system architecture.
 
 ---
 
-## System Requirements
+## End-to-end workflow
 
-This repository has been tested in the following environment:
+The pipeline described in the paper can be viewed as a five-stage workflow.
+Each stage corresponds to one top-level directory in this repository.
 
-- OS: Windows 11 (inside Docker container)
-- Python: 3.12.7 (via Anaconda base image at /opt/conda/bin/python)
-- Required packages (see `.docker/requirements.txt`):
-  - numpy 1.26.4
-  - pandas 2.2.2
-  - opencv-python 4.11.0.86
-  - matplotlib 3.9.2
-  - seaborn 0.13.2
-  - scikit-learn 1.5.1
-  - jupyter 1.0.0
-  - jupyterlab 4.2.5
-  - pillow 10.4.0
-  - pillow-heif 0.22.0
-  - loguru 0.7.3
-  - markupsafe 2.0.1
-- Additional system dependencies:
-  - libgl1 (for OpenCV GUI functions)
+### 1. Edge acquisition & compression – `edge_computing/`
 
-## Installation Guide
+- Runs on an embedded device (e.g. NVIDIA Jetson Xavier NX).  
+- Acquires 3D whole-slide edge tomography data.  
+- Performs on-device reconstruction and **hardware-accelerated HEVC compression**.  
+- Writes multi-layer slide files and related metadata to local storage.
 
-We recommend using the provided Docker environment for reproducibility.
+**Output of this stage**
 
-### 1. Prerequisites
+- HEVC-encoded slide videos (multi-layer edge tomography)  
+- Acquisition metadata (exposure, focus steps, etc., depending on setup)
 
-- Docker installed on your system
-- (Optional) VS Code with Remote - Containers extension, if using as a Dev Container
-
-### 2. Build the Docker container
-
-In the root of the repository, run the following command:
-
-bash
-docker build -t cyboscan-analysis -f .docker/Dockerfile .
-
-Typical install time on a standard desktop:
-
-Docker image build: ~3–5 minutes (depending on internet speed)
-
-Container startup: <1 minute
-
-## Reproducible Figures
-
-Below are the figures/tables that can be reproduced directly with public materials in this repository.  
-All notebooks were validated inside the Docker environment.  
-*Runtime estimates were measured inside the provided Docker container on a standard desktop; first runs may be slightly slower due to cache warm-up.*
-
-### A. Single-center pilot study (original submission; **Fig. 6**)
-- **Notebook:** `statistical_analysis/paper-figure_population-analysis_313-31y41.ipynb`  
-- **Input:** `statistical_analysis/paper-figure_celllist.csv`  
-- **Generates:** **Fig. 6a–i**  
-  - **Update in v1.1.0:** displays **q-values** on **Fig. 6e–f** (significance tests).
-  - **Update in v1.1.1:** add **Cliff’s delta** effect sizes where applicable.
-- **Expected run time:** ~10 minutes
-
-### B. Multicenter evaluation (revision; **Fig. 7**, Extended Data Figs. 7–8)
-All notebooks below assume the working directory is `multicenter_analysis/` and read a single CSV, `paper-figure_celllist_all.csv`.
-
-- `0_check_data.ipynb`  
-  - **Supplementary Table 1**: Sample counts by center, HPV status, cytology category  
-  - **Extended Data Fig. 7b**: Age distributions by center  
-  - **Extended Data Fig. 8a**: Age distributions by preparation (SurePath / ThinPrep)
-  - **Expected run time:** <1 minute
-
-- `1_cytology-AI-plots.ipynb`  
-  - **Extended Data Fig. 7a, 7c–d**: Whole-slide counts across centers (incl. *navicular*; abnormal-only)  
-  - **Fig. 7a–b**: AI-detected LSIL/HSIL counts by diagnosis and center (violin + points)
-  - **Expected run time:** ~2–4 minutes
-
-- `2_cytology-AI-statistics.ipynb`  
-  - **Supplementary Table 2**: Summary stats and within-center significance for AI-detected LSIL/HSIL counts (+ Cliff’s delta)
-  - **Expected run time:** <1 minute
-
-- `3_hpv.ipynb`  
-  - **Fig. 7c–d**: LSIL/HSIL counts by HPV status (− / +), stratified by center (violin + boxplots) (+ Cliff’s delta)
-  - **Expected run time:** <1 minute
-
-- `4_roc-auc.ipynb`  
-  - **Fig. 7e**: ROC for LSIL⁺ (LSIL, ASC-H, HSIL, SCC) and HSIL⁺ (HSIL, SCC), **per center + all centers**  
-  - **Extended Data Fig. 8b–c**: ROC by sample preparation (SurePath / ThinPrep)  
-  - **Fig. 7f–g**: Threshold–AUC sensitivity curves for LSIL⁺ / HSIL⁺ (per center)
-  - **Expected run time:** ~15–25 minutes
-
-- `5_roc-auc-hpv.ipynb`  
-  - **Fig. 7h–i**: ROC for AI-based detection of **HPV positivity** with 95% CI; human operating points (ASC-US⁺, LSIL⁺) overlaid (h: all centers; i: Center C)
-  - **Expected run time:** ~1–2 minutes
-
-### C. Viewer latency (unchanged in revision; **Extended Data Fig. 3b**)
-- **Notebook:** `viewer_latency/viewer_latency copy.ipynb`  
-- **Input:** `viewer_latency/viewer_latency_data/*.csv`  
-- **Generates:** **Extended Data Fig. 3b** (latency vs. data size)
-- **Expected run time:** <1 minutes
-
-> **Note:** Figure numbering reflects the revision manuscript and may be updated before camera-ready.
+> For build instructions and hardware/SDK requirements, see  
+> `edge_computing/README.md`.
 
 ---
 
-## Figures requiring proprietary data
+### 2. Interactive slide viewing – `backend_image_vending/`
 
-The following still require non-public image datasets and are therefore **not fully reproducible** here:
+- Runs on a GPU server or workstation.  
+- Opens the HEVC slide files produced in step 1.  
+- Provides HTTP APIs to retrieve tiled images on demand.  
+- Powers a web-based viewer for interactive inspection of compressed slides.
 
-- **Figure 5**
-  - 5b (UMAP) & 5e,f (cell images): `umap_plot/Image_UMAP_313-31y41_154.ipynb`  
-  - 5c (UMAP) & 5f (cells): `umap_plot/Image_UMAP_313-31y41_068.ipynb`  
-  - 5d (UMAP) & 5g,h (cells): `umap_plot/Image_UMAP_313-31y41_119.ipynb`  
-  These notebooks contain the code, but associated images are not included.
+**Input**
 
----
+- HEVC-encoded slides from `edge_computing/`
 
-## Instructions for Use
+**Output**
 
-To apply the analysis to your own dataset:
-1. Prepare a CSV following the schemas used in:
-   - `statistical_analysis/paper-figure_celllist.csv` (single-center)  
-   - `multicenter_analysis/paper-figure_celllist_all.csv` (multicenter)
-2. Adjust the input path in the chosen notebook as needed.
-3. Execute all cells in Jupyter Lab (inside the Docker container).
+- Network-accessible tile/volume streaming endpoints for human viewing.
+
+> For API details, deployment examples, and viewer integration, see  
+> `backend_image_vending/README.md`.
 
 ---
 
-## Data availability (summary)
+### 3. Model development & training – `ai_training/`
 
-Due to privacy and regulatory constraints, raw cytology image data are not publicly shared. 
-We provide anonymized CSVs sufficient to reproduce the key quantitative figures in this repository. 
-For details on data governance and access requests, please refer to the manuscript’s Data Availability statement.
+- Runs offline on GPU servers using non-public training datasets derived
+  from the acquired slides.  
+- Implements the training pipelines for cell classification (e.g. MaxViT-based models).  
+- Supports cross-validation, ablations, and model selection reported in the
+  manuscript.  
+- Exports ONNX model files for deployment.
 
+**Input**
 
-## License
+- Curated training datasets constructed from the edge-acquired slides  
+  (not distributed in this repository)
 
-This repository is licensed under the MIT License.  
-© 2025 K.K.CYBO
+**Output**
 
-Please note that some portions of the code disclosed here may be covered by one or more patents. The presence, scope, and jurisdiction of such patents may vary, and this repository does not grant any license to use any patented technology.
+- ONNX model file(s) for cell classification.
 
+> For experiment configuration, Docker environments, and training scripts, see  
+> `ai_training/README.md`.
 
-For details, please refer to the `LICENSE` file included in this repository.
+---
+
+### 4. Backend AI inference – `backend_inference/`
+
+- Consumes:
+  - HEVC slide files from **step 1**, and  
+  - ONNX models from **step 3**.  
+- Uses CUDA-accelerated video decoding (NVDEC) to read multi-layer slides.  
+- Runs batched YOLOX inference to detect nuclei across the Z-stack.  
+- Groups detections, selects the best-focused ROI per cell, and crops
+  MaxViT-sized patches.  
+- Runs MaxViT inference on the cropped patches and writes **per-cell
+  predictions** to CSV.
+
+**Input**
+
+- HEVC slide files (from `edge_computing/`)  
+- ONNX models from `ai_training` (for cell classification) and/or other compatible training pipelines
+- Configuration in `inference.py` (paths, GPU settings, thresholds)
+
+**Output**
+
+- `celllist.csv` files containing, for each ROI:
+  - slide index, spot index, cell index  
+  - bounding box and focal plane (`z, x1, y1, x2, y2`)  
+  - class scores / probabilities for the 10-class classifier used in the paper
+
+> For container build instructions and example inference settings, see  
+> `backend_inference/README.md`.
+
+---
+
+### 5. Downstream analysis & figures – `downstream_analysis/`
+
+- Consumes the per-cell prediction CSVs from `backend_inference/`.  
+- Combines them with study metadata and labels (where shareable) to reproduce:
+  - multicenter evaluation,  
+  - ROC/AUC curves and operating points,  
+  - HPV-stratified and subgroup analyses,  
+  - and other statistical results in the manuscript.  
+- Provides Jupyter notebooks and scripts that regenerate the main and extended
+  figures/tables (subject to data availability).
+
+**Input**
+
+- Inference CSVs from `backend_inference/`  
+- Evaluation datasets and metadata (some not publicly distributable)
+
+**Output**
+
+- Analysis notebooks, plots, and tables corresponding to the paper’s results.
+
+> For environment setup and notebook execution order, see  
+> `downstream_analysis/README.md`.
+
+---
+
+## Repository layout
+
+High-level directory structure:
+
+```text
+cyboscan-paper/
+├── README.md              # This file
+├── LICENSE                # AGPL-3.0 (from v2.0.0)
+├── CHANGELOG.md
+├── CITATION.cff
+│
+├── edge_computing/        # Jetson / C++ / CUDA-based edge-side software
+│   ├── README.md          # Module description and build information
+│   ├── src/               # Source code files
+│   └── include/           # Source header files
+│
+├── ai_training/           # GPU server–side training code (primarily Python)
+│   ├── README.md
+│   ├── docker/
+│   └── ...
+│
+├── backend_image_vending/ # Backend for streaming compressed 3D slides to viewers
+│   ├── README.md          # Backend description and build information
+│   ├── run.py             # Backend running script
+│   ├── docker/            # Docker image environment files
+│   └── api/               # Source code files
+│
+├── backend_inference/     # Backend AI inference services
+│   ├── README.md
+│   ├── docker/
+│   └── ...
+│
+└── downstream_analysis/   # Notebooks and scripts for analyses, figures, and tables
+    ├── README.md
+    ├── .docker/
+    └── ...
+```
+
+---
+
+## Versioning and license
+
+From **v2.0.0** onward:
+
+- The repository is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.  
+- All custom code necessary to reproduce the results in the manuscript is included here, subject to:
+  - External vendor SDKs or drivers that must be obtained separately.
+  - Data that cannot be redistributed for privacy or institutional reasons.
+  - Third-party components that remain under their respective licenses.
+
+Earlier releases (the **1.x** series):
+
+- Contain only the downstream analysis and figure-generation code.  
+- Are archived separately (with their own Zenodo DOIs) and remain available under their original license.  
+- Represent analysis-only snapshots prior to the release of the full codebase.
+
+Please see `CHANGELOG.md` and the GitHub **Releases** page for details about each version and associated Zenodo records.
+
+---
+
+## How to cite
+
+If you use this code or build upon this work, please cite:
+
+- The manuscript:  
+  > *Clinical-grade autonomous cytopathology via whole-slide edge tomography*  
+  > (Nitta et al., [update with final journal details before camera-ready])
+
+- Optionally, a specific archived release of this repository via its Zenodo DOI, as referenced in the manuscript’s Code availability statement.
+
+A machine-readable citation is provided in `CITATION.cff` and can be converted to other formats using tools such as `cffconvert`.

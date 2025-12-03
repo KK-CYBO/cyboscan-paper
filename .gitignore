@@ -1,3 +1,2 @@
-test_*
-.dev*
-*figs*
+/.vscode/
+__pycache__/

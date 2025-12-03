@@ -1,22 +1,22 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the specific tagged release (see DOI below)."
-title: "cyboscan-paper: analysis code for Clinical-grade autonomous cytopathology via whole-slide edge tomography"
+title: "cyboscan-paper: code for Clinical-grade autonomous cytopathology via whole-slide edge tomography"
 authors:
   - family-names: Nitta
     given-names: Nao
     affiliation: "K.K.CYBO"
     orcid: "https://orcid.org/0000-0002-9093-9016"
 repository-code: "https://github.com/KK-CYBO/cyboscan-paper"
-license: MIT
+license: AGPL-3.0-only
 keywords:
   - cytology
   - cervical cancer screening
   - whole-slide imaging
   - AI
-version: "v1.1.2"
-doi: 10.5281/zenodo.17502340
-url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2"
-date-released: "2025-11-02"
+version: "v2.0.0"
+doi: 10.5281/zenodo.17460807
+url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v2.0.0"
+date-released: "2025-12-04"
 identifiers:
   - type: doi
     value: 10.5281/zenodo.17460807
@@ -35,11 +35,10 @@ identifiers:
     description: "Version 1.0.0"
 preferred-citation:
   type: software
-  title: "cyboscan-paper (v1.1.2)"
+  title: "cyboscan-paper (v2.0.0)"
   authors:
     - family-names: Nitta
       given-names: Nao
       affiliation: "K.K.CYBO"
       orcid: "https://orcid.org/0000-0002-9093-9016"
-  doi: 10.5281/zenodo.17502340
-  url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v1.1.2"
+  url: "https://github.com/KK-CYBO/cyboscan-paper/releases/tag/v2.0.0"

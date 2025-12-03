@@ -1,0 +1,9 @@
+scikit-learn
+pandas
+opencv-python
+numpy<2
+matplotlib
+timm
+albumentations
+lmdb
+onnx

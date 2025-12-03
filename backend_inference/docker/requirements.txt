@@ -1,0 +1,5 @@
+opencv-python
+numpy
+onnxruntime-gpu
+faiss-gpu-cu12
+torchvision

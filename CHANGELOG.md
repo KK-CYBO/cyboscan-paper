@@ -2,6 +2,33 @@
 All notable changes to this project will be documented in this file.
 This project follows Keep a Changelog and uses Semantic Versioning.
 
+---
+
+## [v2.0.0] - 2025-12-04
+
+### Summary
+Major release turning the repository from an analysis-only snapshot into a full end-to-end system implementation.
+
+### Added
+- New top-level modules implementing the full pipeline:
+  - `edge_computing/` – Jetson / C++ / CUDA edge acquisition and compression.
+  - `backend_image_vending/` – HEVC slide streaming backend and viewer API.
+  - `backend_inference/` – AI inference backend (YOLOX + MaxViT).
+  - `ai_training/` – model training pipelines and Docker environments.
+- New downstream analysis components:
+  - `downstream_analysis/UMAP_plot/` and `downstream_analysis/Data/` to reproduce dotplots, histograms, and UMAP plots in Fig. 3a–d.
+  - `downstream_analysis/scanner_latency/` for scanner performance evaluation.
+
+### Changed
+- `LICENSE`: changed the project license from MIT to **AGPL-3.0**.
+- Restructured the repository so that the previous analysis-only code now lives under `downstream_analysis/`.
+- Updated figure and panel references in notebooks / docs to match the final manuscript numbering.
+
+### Fixed
+- None.
+
+---
+
 ## [v1.1.2] - 2025-11-2
 ### Added
 - **Expected run time** estimates for each reproducible notebook in `README.md` (“Reproducible Figures” section).
@@ -11,6 +38,8 @@ This project follows Keep a Changelog and uses Semantic Versioning.
 
 ### Fixed
 - None.
+
+---
 
 ## [v1.1.1] - 2025-10-30
 ### Added
@@ -25,6 +54,8 @@ This project follows Keep a Changelog and uses Semantic Versioning.
 
 ### Fixed
 - Minor text polish in docs (no breaking changes).
+
+---
 
 ## [v1.1.0] - 2025-10-28
 ### Added
@@ -47,6 +78,8 @@ This project follows Keep a Changelog and uses Semantic Versioning.
 
 ### Fixed
 - Minor doc updates and paths in top-level README to reflect the new multicenter analyses.
+
+---
 
 ## [v1.0.0] - 2025-07-09
 ### Added
